@@ -1,0 +1,29 @@
+MODEL:
+  TYPE: vit
+  NAME: finetune
+  DROP_PATH_RATE: 0.1
+  VIT:
+    EMBED_DIM: 768
+    DEPTH: 12
+    NUM_HEADS: 12
+    INIT_VALUES: None
+    USE_APE: True
+    USE_RPB: False
+    USE_SHARED_RPB: False
+    USE_MEAN_POOLING: True
+DATA:
+  IMG_SIZE: 224
+AUG:
+  COLOR_JITTER: 0.
+TRAIN:
+  EPOCHS: 100
+  WARMUP_EPOCHS: 5
+  BASE_LR: 2e-3
+  WARMUP_LR: 2.5e-7
+  MIN_LR: 2.5e-7
+  WEIGHT_DECAY: 0.05
+  LAYER_DECAY: 0.8
+  CLIP_GRAD: None
+PRINT_FREQ: 100
+SAVE_FREQ: 10
+TAG: finetune__vit_base__img224__100ep

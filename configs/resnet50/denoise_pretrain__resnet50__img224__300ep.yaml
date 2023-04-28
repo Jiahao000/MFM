@@ -1,0 +1,28 @@
+MODEL:
+  TYPE: resnet
+  NAME: pretrain
+  DROP_PATH_RATE: 0.0
+  RECOVER_TARGET_TYPE: normal
+  RESNET:
+    LAYERS: [3, 4, 6, 3]
+DATA:
+  IMG_SIZE: 224
+  FILTER_TYPE: denoise
+  NOISE:
+    TYPE: ['gaussian']
+    PROB: [1.]
+    GAUSSIAN_SIGMA: [75, 75]
+    GAUSSIAN_GRAY_NOISE_PROB: 0.
+TRAIN:
+  EPOCHS: 300
+  WARMUP_EPOCHS: 20
+  BASE_LR: 3e-4
+  WARMUP_LR: 2.5e-7
+  MIN_LR: 2.5e-6
+  WEIGHT_DECAY: 0.05
+  CLIP_GRAD: 3.0
+  OPTIMIZER:
+    BETAS: (0.9, 0.95)
+PRINT_FREQ: 100
+SAVE_FREQ: 10
+TAG: denoise_pretrain__resnet50__img224__300ep

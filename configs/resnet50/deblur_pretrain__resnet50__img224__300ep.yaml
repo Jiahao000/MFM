@@ -1,0 +1,28 @@
+MODEL:
+  TYPE: resnet
+  NAME: pretrain
+  DROP_PATH_RATE: 0.0
+  RECOVER_TARGET_TYPE: normal
+  RESNET:
+    LAYERS: [3, 4, 6, 3]
+DATA:
+  IMG_SIZE: 224
+  FILTER_TYPE: deblur
+  BLUR:
+    KERNEL_LIST: ['iso']
+    KERNEL_PROB: [1.]
+    SIGMA_X: [5, 5]
+    SIGMA_Y: [5, 5]
+TRAIN:
+  EPOCHS: 300
+  WARMUP_EPOCHS: 20
+  BASE_LR: 3e-4
+  WARMUP_LR: 2.5e-7
+  MIN_LR: 2.5e-6
+  WEIGHT_DECAY: 0.05
+  CLIP_GRAD: 3.0
+  OPTIMIZER:
+    BETAS: (0.9, 0.95)
+PRINT_FREQ: 100
+SAVE_FREQ: 10
+TAG: deblur_pretrain__resnet50__img224__300ep

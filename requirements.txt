@@ -1,0 +1,7 @@
+opencv-python
+pyyaml
+scipy
+tensorboard
+termcolor
+timm==0.4.12
+yacs
